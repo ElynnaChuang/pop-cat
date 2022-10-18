@@ -17,5 +17,4 @@ function catToggle(event) {
     }, 100);
   }
 }
-
 playground.addEventListener("click", catToggle);
