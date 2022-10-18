@@ -1,20 +1,16 @@
-let clicks = parseInt(document.querySelector(".counter").textContent, 10);
+const counterDisp = document.querySelector("#counter");
 const playground = document.querySelector(".playground");
 const audio = document.querySelector(".pop-voice");
+let clicks = parseInt(counterDisp.textContent, 10);
 
 function catToggle(event) {
-  const catSwitch = document.querySelector(".playground").firstElementChild;
-  let counter = document.querySelector(".counter");
-  const target = event.target;
-  console.log(target);
-  if (target.className === "cat-off") {
-    catSwitch.className = "cat-on";
+  const catSwitch = document.querySelector("#cat-switch")
+  if (event.target.matches('.cat')) {
+    catSwitch.classList.toggle('cat-on')
     clicks++;
-    counter.innerHTML = clicks;
+    counterDisp.textContent = clicks;
     audio.play();
-    setTimeout(function () {
-      catSwitch.className = "cat-off";
-    }, 100);
+    setTimeout(() => catSwitch.classList.toggle('cat-on'), 100);
   }
 }
-playground.addEventListener("click", catToggle);
+playground.addEventListener('click', catToggle);
